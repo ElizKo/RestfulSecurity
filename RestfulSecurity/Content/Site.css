@@ -1,0 +1,26 @@
+﻿body {
+    padding-bottom: 20px;
+    background: #f0f6f7;    
+}
+
+.jumbotron {
+    color: #fff;
+    background: #1E3857;
+}
+
+.page-header {
+    margin-left: 100px;
+}
+
+.scroll-table {
+    height: 200px;
+    overflow: auto;
+}
+
+#updateBtn, #cancelBtn, #dialog-confirm-delete {
+    display: none;
+}
+
+#imageContainer {
+     padding-top: 30px;
+}

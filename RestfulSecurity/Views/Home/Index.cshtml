@@ -1,0 +1,18 @@
+﻿<div class="jumbotron">
+    <h2>Home page</h2>
+    <p>In order to have access to medical records, you will need to be an authorised user.</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-12" style="display:none" data-bind="visible: isAuthorised() ">
+        @Html.Partial("Patient")
+    </div>
+
+    <div class="col-sm-6" data-bind="visible: !isAuthorised() ">
+        @Html.Partial("Register")
+    </div>
+    
+    <div class="col-sm-6" data-bind="visible: !isAuthorised() ">
+        @Html.Partial("Login")
+    </div>
+</div>
