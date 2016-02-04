@@ -2,9 +2,11 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace RestfulSecurity.Controllers
 {
+    // [EnableCors("*", "*", "*", "DataServiceVersion, MaxDataServiceVersion")]
     public class BaseController : ApiController
     {
         // Instance of EF DataContext to access the database

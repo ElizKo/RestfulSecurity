@@ -51,11 +51,19 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -182,6 +190,10 @@
     <Compile Include="Migrations\201508241824364_Initial.Designer.cs">
       <DependentUpon>201508241824364_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602052138141_Bundle changes and footer.cs" />
+    <Compile Include="Migrations\201602052138141_Bundle changes and footer.Designer.cs">
+      <DependentUpon>201602052138141_Bundle changes and footer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Models\File.cs" />
@@ -227,6 +239,7 @@
     <Content Include="Content\jQueryUI\tabs.css" />
     <Content Include="Content\jQueryUI\theme.css" />
     <Content Include="Content\jQueryUI\tooltip.css" />
+    <Content Include="Content\stickyFooter.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -236,6 +249,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\Libraries\bootstrap.js" />
     <Content Include="Scripts\Libraries\bootstrap.min.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\patient.js" />
     <None Include="Scripts\Libraries\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\Libraries\jquery-2.1.4.js" />
@@ -286,6 +300,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508241824364_Initial.resx">
       <DependentUpon>201508241824364_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602052138141_Bundle changes and footer.resx">
+      <DependentUpon>201602052138141_Bundle changes and footer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

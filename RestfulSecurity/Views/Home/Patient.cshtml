@@ -1,4 +1,8 @@
-﻿<div class="form-group">
+﻿@{
+    ViewBag.Title = "Patient Records";
+}
+
+<div class="form-group">
     <div class="pull-right">
         <span>Hello, <em><label data-bind="text: user" /></em></span>
         <button data-bind="click: logout" class="btn btn-primary">Log Out</button>
@@ -28,7 +32,9 @@
     </table>
 </div>
 <br/>
+
 <legend>Embryo Images <span id="selectedPatientLabel"></span></legend>
+
 <div class="scroll-table">
     <table id="imageTable" class="table table-hover">
         <thead>
@@ -40,6 +46,7 @@
         <tbody id="imageTableBody" />
     </table>
 </div>
+
 <div id="imageContainer"></div>
 <br />
 
@@ -76,10 +83,12 @@
                 <button id="cancelBtn" type="button" class="btn btn-danger">Cancel</button>
             </div>
             <input type="hidden" id="patientIdHidden" />
+            <a href="#" class="back-to-top">Back to Top<span></span></a>
         </div>
     </fieldset>
 </form>
 <br />
+
 <div id="dialog-confirm-delete" title="Delete patient?">
     <p><span class="ui-icon ui-icon-alert"></span>Are you sure you want to delete this patient?</p>
 </div>

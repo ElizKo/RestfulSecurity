@@ -18,6 +18,9 @@ namespace RestfulSecurity
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            // cross-origin resource sharing
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

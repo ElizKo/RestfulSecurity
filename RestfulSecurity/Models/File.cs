@@ -10,7 +10,11 @@ namespace RestfulSecurity.Models
     public class File
     {
         public int Id { get; set; }
+
         [StringLength(200)]
+        [Required(
+            AllowEmptyStrings = false,
+            ErrorMessage = "File name can't be empty")]
         public string FileName { get; set; }
 
         [JsonIgnore] 

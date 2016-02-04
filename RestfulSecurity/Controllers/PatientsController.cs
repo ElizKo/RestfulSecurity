@@ -10,14 +10,14 @@ using System.Data.Entity;
 
 namespace RestfulSecurity.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class PatientsController : BaseController
     {
         //Return all patients
         [HttpGet]
-        public List<Patient> GetAllPatients()
+        public IEnumerable<Patient> GetAllPatients()
         {
-            return db.Patients.ToList();
+            return db.Patients;
         }
 
         // Return a patient based on its id
@@ -30,7 +30,7 @@ namespace RestfulSecurity.Controllers
         //Return all patients based on search filter
         [HttpGet]
         [Route("api/patients/search")]
-        public List<Patient> GetAllPatientsByKeyword([FromUri] string keyword)
+        public IEnumerable<Patient> GetAllPatientsByKeyword([FromUri] string keyword)
         {
             // return all the patients in case the keyword is empty
             if (string.IsNullOrEmpty(keyword))
@@ -39,16 +39,27 @@ namespace RestfulSecurity.Controllers
             }
             else
             {
+                int result = 0;
+
                 // filter the patients based on the provided keyword
-                return db.Patients.Where(x => x.FirstName.Contains(keyword) || x.LastName.Contains(keyword)).ToList();
+                if (int.TryParse(keyword, out result))
+                {
+                    return db.Patients.Where(x => x.Age == result
+                    || x.NumberOfEmbryos == result);
+                }
+                else
+                {
+                    return db.Patients.Where(x => x.FirstName.Contains(keyword)
+                    || x.LastName.Contains(keyword));
+                }
             }
         }
 
         [HttpGet]
         [Route("api/patients/{patientId}/files")]
-        public List<File> GetAllPatientFiles(int patientId)
+        public IEnumerable<File> GetAllPatientFiles(int patientId)
         {
-            return db.Files.Where(f => f.PatientID == patientId).ToList();
+            return db.Files.Where(f => f.PatientID == patientId);
         }
 
         // Create a new patient

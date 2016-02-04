@@ -53,24 +53,7 @@ namespace RestfulSecurity.Migrations
                 new File() { Id = 19, FileName = "R0155SLD754_118.png", PatientID = 1 },
                 new File() { Id = 20, FileName = "R0155SLD754_119.png", PatientID = 3 },
                 new File() { Id = 21, FileName = "R0155SLD754_120.png", PatientID = 8 },
-                new File() { Id = 22, FileName = "R0155SLD754_091.png", PatientID = 1 },
-                new File() { Id = 23, FileName = "R0155SLD754_092.png", PatientID = 2 },
-                new File() { Id = 24, FileName = "R0155SLD754_093.png", PatientID = 3 },
-                new File() { Id = 25, FileName = "R0155SLD754_094.png", PatientID = 11 },
-                new File() { Id = 26, FileName = "R0155SLD754_095.png", PatientID = 7 },
-                new File() { Id = 27, FileName = "R0155SLD754_096.png", PatientID = 12 },
-                new File() { Id = 28, FileName = "R0155SLD754_097.png", PatientID = 2 },
-                new File() { Id = 29, FileName = "R0155SLD754_098.png", PatientID = 6 },
-                new File() { Id = 30, FileName = "R0155SLD754_099.png", PatientID = 4 },
-                new File() { Id = 22, FileName = "R0155SLD754_081.png", PatientID = 10 },
-                new File() { Id = 23, FileName = "R0155SLD754_082.png", PatientID = 2 },
-                new File() { Id = 24, FileName = "R0155SLD754_083.png", PatientID = 2 },
-                new File() { Id = 25, FileName = "R0155SLD754_084.png", PatientID = 5 },
-                new File() { Id = 26, FileName = "R0155SLD754_085.png", PatientID = 7 },
-                new File() { Id = 27, FileName = "R0155SLD754_086.png", PatientID = 11 },
-                new File() { Id = 28, FileName = "R0155SLD754_087.png", PatientID = 2 },
-                new File() { Id = 29, FileName = "R0155SLD754_088.png", PatientID = 6 },
-                new File() { Id = 30, FileName = "R0155SLD754_089.png", PatientID = 4 }
+                new File() { Id = 22, FileName = "R0155SLD754_121.png", PatientID = 1 }
             );
         }
     }

@@ -9,7 +9,9 @@ namespace RestfulSecurity
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/Libraries/jquery-{version}.js"));
+                        "~/Scripts/Libraries/jquery-{version}.js",
+                        "~/Scripts/Libraries/jquery.unobtrusive*",
+                        "~/Scripts/Libraries/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
             "~/Scripts/Libraries/jquery-ui-{version}.js"));
@@ -47,10 +49,14 @@ namespace RestfulSecurity
                     "~/Content/jQueryUI/spinner.css",
                     "~/Content/jQueryUI/tabs.css",
                     "~/Content/jQueryUI/theme.css",
-                    "~/Content/jQueryUI/tooltip.css"));
+                    "~/Content/jQueryUI/tooltip.css",
+                    "~/Content/stickyFooter.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout/js").Include("~/Scripts/Libraries/knockout-{version}.js"));
-            bundles.Add(new ScriptBundle("~/bundles/custom/js").Include("~/Scripts/patient.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/custom/js")
+                .Include("~/Scripts/patient.js", 
+                         "~/Scripts/login.js"));
         }
     }
 }
