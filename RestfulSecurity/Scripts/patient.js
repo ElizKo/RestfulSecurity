@@ -130,7 +130,7 @@ function getPatients() {
         contentType: 'application/json; charset=utf-8',
         headers: getHeaders(),
         success: function (result) {
-            createPatientTable(result);
+            createPatientTableTest(result);
         },
         error: function () {
             alert("Error when loading patients!");
@@ -149,7 +149,7 @@ function searchPatients() {
         headers: getHeaders(),
         success: function (result) {
             if (result.length > 0) {
-                createPatientTable(result);
+                createPatientTableTest(result);
             }
             else {
                 alert("Sorry, no results found for " + searchTerm + ".");
@@ -209,22 +209,67 @@ function resetInputFields() {
     $('#cancelBtn').hide();
 }
 
-function createPatientTable(patients) {
-    var tableRow = '';
-    // Create the table rows dynamicly based on the JSON result
-    $.each(patients, function (index, patient) {
-        tableRow += '<tr data-firstName="'+ patient.FirstName + '" data-lastName="' + patient.LastName + '" id="' + patient.Id + '"><td>' + (index + 1) +
-                    '</td><td>' + patient.Title +
-                    '</td><td>' + patient.FirstName +
-                    '</td><td>' + patient.LastName +
-                    '</td><td>' + patient.Age +
-                    '</td><td>' + patient.NumberOfEmbryos + '</td><td>' +
-                    '<input type="button" onclick="editBtnClick(' + patient.Id + ')" class="btn btn-link" value="Edit" />' +
-                    '<input type="button" onclick="deleteBtnClick(' + patient.Id + ')" class="btn btn-link" value="Delete" />' +
-                    '</td></tr>';
-    });
+//function createPatientTable(patients) {
+//    var tableRow = '';
+//    // Create the table rows dynamically based on the JSON result
+//    $.each(patients, function (index, patient) {
+//        tableRow += '<tr data-firstName="'+ patient.FirstName + '" data-lastName="' + patient.LastName + '" id="' + patient.Id + '"><td>' + (index + 1) +
+//                    '</td><td>' + patient.Title +
+//                    '</td><td>' + patient.FirstName +
+//                    '</td><td>' + patient.LastName +
+//                    '</td><td>' + patient.Age +
+//                    '</td><td>' + patient.NumberOfEmbryos + '</td><td>' +
+//                    '<input type="button" onclick="editBtnClick(' + patient.Id + ')" class="btn btn-link" value="Edit" />' +
+//                    '<input type="button" onclick="deleteBtnClick(' + patient.Id + ')" class="btn btn-link" value="Delete" />' +
+//                    '</td></tr>';
+//    });
 
-    $('#patientTableBody').html(tableRow);
+//    $('#patientTableBody').html(tableRow);
+//}
+
+function createPatientTableTest(patients) {
+    var tableRow = '';
+    // Create the table rows dynamically based on the JSON result
+    $.each(patients, function (index, patient) {
+
+        var tr = $('<tr>').attr({
+            'data-firstName': patient.FirstName,
+            'data-lastName': patient.LastName,
+            id: patient.Id,
+        });
+
+        tr.append("<td>" + (index + 1) + "</td>");
+        tr.append("<td>" + patient.Title + "</td>");
+        tr.append("<td>" + patient.FirstName + "</td>");
+        tr.append("<td>" + patient.LastName + "</td>");
+        tr.append("<td>" + patient.Age + "</td>");
+        tr.append("<td>" + patient.NumberOfEmbryos + "</td>");
+
+        var td = $('<td>');
+        
+        var editButton = $('<input>').attr({
+            'type': 'button',
+            'onclick': 'editBtnClick(' + patient.Id + ')',
+            'class': 'btn btn-link',
+            'value': 'Edit'
+        });
+        td.append(editButton);
+        tr.append(td);
+
+
+        td = $('<td>');
+        var deleteButton = $('<input>').attr({
+            'type': 'button',
+            'onclick': 'deleteBtnClick(' + patient.Id + ')',
+            'class': 'btn btn-link',
+            'value': 'Delete'
+        });
+
+        td.append(deleteButton);
+        tr.append(td);
+
+        $('#patientTableBody').append(tr);
+    });
 }
 
 function deleteBtnClick(patientId) {
